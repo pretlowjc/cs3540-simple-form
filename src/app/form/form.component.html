@@ -1,0 +1,23 @@
+<div class="form">
+    <form #formData="ngForm" (ngSubmit)="onSubmit(formData)">
+        <div class="movieText">
+            <label for="favMovie">Favorite Movie: </label>
+            <input type="text" id="favMovie" name="favMovie" ngModel required>
+        </div>
+        <div class="selector">
+            <label for="choice">Jedi or Sith:</label>
+            <select id="choice" name="choice" ngModel>
+                <option value="jedi">Jedi</option>
+                <option value="sith">Sith</option>
+            </select>
+        </div>
+        <div class="button">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<div *ngIf="submitted" class="data">
+    <h2>Form Data</h2>
+    <p>Your favorite movie is {{ formData.value.favMovie }}</p>
+    <p>You would choose to be a {{ formData.value.choice }}</p>
+</div>
